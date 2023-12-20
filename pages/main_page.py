@@ -10,7 +10,7 @@ class MainPage(BasePage):
     def click_question(self, number):
         method, locator = MainPageLocators.QUESTION
         locator = locator.format(number)
-        WebDriverWait(self.driver, 5).until(
+        WebDriverWait(self.driver, 15).until(
             expected_conditions.visibility_of_element_located((method, locator)))
         return self.click_to_element((method, locator))
 
@@ -18,7 +18,7 @@ class MainPage(BasePage):
     def get_answer(self, number):
         method, locator = MainPageLocators.ANSWER
         locator = locator.format(number)
-        WebDriverWait(self.driver, 5).until(
+        WebDriverWait(self.driver, 15).until(
             expected_conditions.visibility_of_element_located((method, locator)))
         return self.get_text((method, locator))
 
