@@ -29,3 +29,10 @@ class BasePage:
 
     def wait_navigating_url(self, url):
         WebDriverWait(self.driver, 15).until(expected_conditions.url_to_be(url))
+
+    def wait_for_element_visibility(self, method, locator):
+        return WebDriverWait(self.driver, 15).until(
+            expected_conditions.visibility_of_element_located((method, locator)))
+
+    def switch_window(self, driver):
+        driver.switch_to.window(driver.window_handles[1])
